@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -68,9 +67,54 @@ public class Exams {
     /**
      * 請實現一個簡單的多線程程序，其中一個線程印出偶數，另一個線程印出奇數
      */
-    public void threadControl() {
+    public void threadControl(int begin, int end) {
+        Thread oddThread = Thread.ofVirtual().unstarted(() -> {
+            for (int i = begin; i <= end; i++) {
+                printer(i, PrinterType.PRINT_ODD);
+            }
+        });
+        oddThread.setName("[odd thread]");
+
+        Thread evenThread = Thread.ofVirtual().unstarted(() -> {
+            for (int i = begin; i <= end; i++) {
+                printer(i, PrinterType.PRINT_EVEN);
+            }
+        });
+        evenThread.setName("[even thread]");
+
+        try {
+            oddThread.start();
+            evenThread.start();
+
+            oddThread.join();
+            evenThread.join();
+        } catch (InterruptedException e) {
+            log.error("thread join error {}", e.getMessage());
+            throw new RuntimeException(e);
+        }
 
     }
 
+
+    enum PrinterType {
+        PRINT_ODD,
+        PRINT_EVEN
+    }
+    private void printer(int i, PrinterType printerType) {
+        switch (printerType) {
+            case PRINT_ODD -> {
+                if (i % 2 == 1) {
+                    System.out.println(Thread.currentThread().getName() + ": " + i);
+                    System.err.println(Thread.currentThread().getName() + ": " + i);
+                }
+            }
+            case PRINT_EVEN -> {
+                if (i % 2 == 0) {
+                    System.out.println(Thread.currentThread().getName() + ": " + i);
+                    System.err.println(Thread.currentThread().getName() + ": " + i);
+                }
+            }
+        }
+    }
 
 }

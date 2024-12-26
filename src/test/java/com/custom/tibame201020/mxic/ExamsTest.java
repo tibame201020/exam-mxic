@@ -3,6 +3,11 @@ package com.custom.tibame201020.mxic;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.concurrent.CountDownLatch;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ExamsTest {
@@ -55,5 +60,26 @@ class ExamsTest {
      */
     @Test
     void threadControl() {
+        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+
+        int begin = -100;
+        int end = 200;
+
+        exams.threadControl(begin, end);
+
+        String output = outputStreamCaptor.toString();
+
+        for (int i = begin; i <= end; i++) {
+            if (i % 2 == 1) {
+                assertThat(output)
+                        .contains("[odd thread]: " + i);
+            }
+
+            if (i % 2 == 0) {
+                assertThat(output)
+                        .contains("[even thread]: " + i);
+            }
+        }
     }
 }
