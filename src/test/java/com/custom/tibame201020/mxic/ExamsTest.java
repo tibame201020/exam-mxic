@@ -19,7 +19,9 @@ class ExamsTest {
     @Test
     void reverseString() {
         String str = "hello";
+
         String result = exams.reverseString(str);
+
         assertEquals("olleh", result);
     }
 

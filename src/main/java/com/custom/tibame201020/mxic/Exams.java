@@ -1,5 +1,7 @@
 package com.custom.tibame201020.mxic;
 
+import java.util.Optional;
+
 public class Exams {
 
     /**
@@ -7,7 +9,9 @@ public class Exams {
      * @param str
      */
     public String reverseString(String str) {
-        return null;
+        return Optional.ofNullable(str)
+                .map(s -> new StringBuilder(s).reverse().toString())
+                .orElse(null);
     }
 
     /**
