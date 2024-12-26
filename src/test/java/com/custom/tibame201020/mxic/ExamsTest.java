@@ -31,7 +31,9 @@ class ExamsTest {
     @Test
     void findFibonacci() {
         int n = 5;
+
         int result = exams.findFibonacci(n);
+
         assertEquals(5, result);
     }
 
