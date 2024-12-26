@@ -1,28 +1,18 @@
-package com.custom.tibame201020.mxic.refactor;
+package com.custom.tibame201020.mxic.refactor.useCase;
 
 import com.custom.tibame201020.mxic.domain.Order;
 import com.custom.tibame201020.mxic.domain.OrderItem;
-import com.custom.tibame201020.mxic.refactor.useCase.ProcessOrderUseCase;
-import com.custom.tibame201020.mxic.refactor.useCase.ProcessOrderUseCaseImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class OrderProcessorTest {
-    private ProcessOrderUseCase processOrderUseCase;
-    private Order order;
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
-    @BeforeEach
-    public void init() {
-        processOrderUseCase = new ProcessOrderUseCaseImpl().original();
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }
+public abstract class _OrderProcessTest {
+    ProcessOrderUseCase processOrderUseCase;
+    Order order;
+    protected final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @Test
     void when_order_is_null() {
@@ -73,5 +63,4 @@ class OrderProcessorTest {
 
         assertEquals("Order processed with total: 170.0", outputStreamCaptor.toString().trim());
     }
-
 }

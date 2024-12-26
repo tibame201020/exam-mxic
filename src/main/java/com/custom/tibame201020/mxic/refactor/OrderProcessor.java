@@ -6,7 +6,6 @@ import com.custom.tibame201020.mxic.domain.OrderItem;
 import java.util.Optional;
 
 public class OrderProcessor {
-
     // original
     public void processOrder(Order order) {
         if (order != null) {
