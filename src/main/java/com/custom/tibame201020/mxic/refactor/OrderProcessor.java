@@ -56,8 +56,4 @@ public class OrderProcessor {
         }
     }
 
-    // stream with optional?
-    public void stream_processOrder(Order order) {
-
-    }
 }
