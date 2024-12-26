@@ -42,9 +42,12 @@ class ExamsTest {
      */
     @Test
     void countWord() {
+        String filePath = "hello.txt";
+
         String word = "hello";
-        int result = exams.countWord(word);
-        assertEquals(1, result);
+        int result = exams.countWord(filePath, word);
+
+        assertEquals(8, result);
     }
 
     /**
