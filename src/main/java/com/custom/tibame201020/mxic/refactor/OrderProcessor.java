@@ -56,4 +56,29 @@ public class OrderProcessor {
         }
     }
 
+    // stream
+    public void stream_processOrder(Order order) {
+        if (null == order) {
+            System.out.println("Order is null");
+            return;
+        }
+        if (null == order.getItems() || order.getItems().isEmpty()) {
+            System.out.println("Order has no items");
+            return;
+        }
+
+        double total = order.getItems().stream()
+                .filter(item -> null != item && item.getPrice() > 0)
+                .mapToDouble(OrderItem::getPrice)
+                .sum();
+
+        if (total <= 0) {
+            System.out.println("Order total is zero or negative");
+            return;
+        }
+
+        // some processing
+        System.out.println("Order processed with total: " + total);
+    }
+
 }
