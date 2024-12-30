@@ -1,18 +1,36 @@
 ### 1、 寫一個方法來反轉給定的字符串。例如，輸入 "hello"，應返回 "olleh";。
 - [code](https://github.com/tibame201020/exam-mxic/blob/main/src/main/java/com/custom/tibame201020/mxic/Exams.java#L20)
 - [test](https://github.com/tibame201020/exam-mxic/blob/main/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java#L25)
+```
+/src/main/java/com/custom/tibame201020/mxic/Exams.java
+/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java
+```
 
 ### 2、 寫一個方法來計算第 n 個費氏數。例如，fibonacci(5) 應返回 5，因為費氏數列的前幾個數是 0, 1, 1, 2, 3, 5。
 - [code](https://github.com/tibame201020/exam-mxic/blob/main/src/main/java/com/custom/tibame201020/mxic/Exams.java#L30)
 - [test](https://github.com/tibame201020/exam-mxic/blob/main/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java#L37)
+```
+/src/main/java/com/custom/tibame201020/mxic/Exams.java
+/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java
+```
+
 
 ### 3、 寫一個方法來計算一個文本文件中某個單詞出現的數量，Input 為某個單詞， Output 為出現數量。
 - [code](https://github.com/tibame201020/exam-mxic/blob/main/src/main/java/com/custom/tibame201020/mxic/Exams.java#L48)
 - [test](https://github.com/tibame201020/exam-mxic/blob/main/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java#L49)
+```
+/src/main/java/com/custom/tibame201020/mxic/Exams.java
+/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java
+```
+
 
 ### 4、 請實現一個簡單的多線程程序，其中一個線程印出偶數，另一個線程印出奇數。
 - [code](https://github.com/tibame201020/exam-mxic/blob/main/src/main/java/com/custom/tibame201020/mxic/Exams.java#L70)
 - [test](https://github.com/tibame201020/exam-mxic/blob/main/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java#L62)
+```
+/src/main/java/com/custom/tibame201020/mxic/Exams.java
+/src/test/java/com/custom/tibame201020/mxic/ExamsTest.java
+```
 
 ### 5、 請重構或優化以下程式
 ```
@@ -30,3 +48,15 @@ original code 包含refactor method,
 
 - [function interface](https://github.com/tibame201020/exam-mxic/blob/main/src/main/java/com/custom/tibame201020/mxic/refactor/useCase/ProcessOrderUseCase.java)
 - [abstract test](https://github.com/tibame201020/exam-mxic/blob/main/src/test/java/com/custom/tibame201020/mxic/refactor/useCase/_OrderProcessTest.java)
+
+```
+/src/main/java/com/custom/tibame201020/mxic/refactor/OrderProcessor.java
+/src/main/java/com/custom/tibame201020/mxic/refactor/useCase/ProcessOrderUseCase.java
+/src/main/java/com/custom/tibame201020/mxic/refactor/useCase/ProcessOrderUseCaseImpl.java
+
+/src/test/java/com/custom/tibame201020/mxic/refactor/OrderProcessorTest.java
+/src/test/java/com/custom/tibame201020/mxic/refactor/useCase/_OrderProcessTest.java
+/src/test/java/com/custom/tibame201020/mxic/refactor/useCase/OriginalTest.java
+/src/test/java/com/custom/tibame201020/mxic/refactor/useCase/EarlyReturnTest.java
+/src/test/java/com/custom/tibame201020/mxic/refactor/useCase/StreamTest.java
+```
